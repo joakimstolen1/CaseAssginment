@@ -9,14 +9,6 @@ This script fetches product data from the FakeStore API, processes it, and prepa
 - Transforms and prepares the data for machine learning
 - Creates three database tables: raw, transformed, and ML-ready data
 
-## Requirements
-
-- Python 3.7+
-- Required Python packages:
-  - requests
-  - pandas
-  - scikit-learn
-
 ## Installation
 
 1. Clone this repository or download the script.
