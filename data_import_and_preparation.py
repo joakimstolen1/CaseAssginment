@@ -24,14 +24,16 @@ def prepare_raw_data(data):
     """Prepare raw data for storage by converting dict to JSON string."""
     df = pd.DataFrame(data)
 
-    #Convert the 'rating' dictionary to a JSON string for storage in DB
+    #Convert the 'rating' object to a JSON string for storage in DB
     df['rating'] = df['rating'].apply(json.dumps)
     return df
 
 
 def transform_data(df):
     """Transform the data for analysis."""
-    df = df.copy()  # Create a copy to avoid modifying the original data
+
+    # Create a copy to avoid modifying the original data
+    df = df.copy()
 
     df['price'] = pd.to_numeric(df['price'], errors='coerce')
 
@@ -81,11 +83,6 @@ def store_data(df, table_name, db_file):
 def main():
     # Fetch data
     raw_data = fetch_data_from_api(API_URL)
-
-    # Print raw data
-    print("Raw data from API:")
-    print(json.dumps(raw_data[:2], indent=2))  # Print first 2 items for brevity
-    print("...")  # Indicate there's more data
 
     # Prepare and store raw data
     raw_df = prepare_raw_data(raw_data)
