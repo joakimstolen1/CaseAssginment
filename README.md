@@ -1,4 +1,4 @@
-# CaseAssginment
+# CaseAssignment
 
 This script fetches product data from the FakeStore API, processes it, and prepares it for machine learning tasks.
 
